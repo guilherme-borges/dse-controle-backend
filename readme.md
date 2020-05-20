@@ -9,3 +9,4 @@
 ## Comandos para rodar
 * `npm install`
 * `knex migrate:latest`
+* `npm run dev`
