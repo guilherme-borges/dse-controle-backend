@@ -28,6 +28,11 @@ module.exports = {
             password
         });
 
-        return res.status(201).json({ id })
+        const newUser = await connection('users')
+            .select('*')
+            .where('id', id)
+            .first();
+
+        return res.status(201).json(newUser);
     }
 }
