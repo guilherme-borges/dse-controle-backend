@@ -1,4 +1,6 @@
 const connection = require('../database/connection');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth.json');
 
 module.exports = {
     async create(req, res) {
@@ -19,6 +21,10 @@ module.exports = {
             return res.status(401).json({ error: 'Nome de usuário ou senha inválido.' });
         }
 
-        return res.status(200).json(user);
+        const token = jwt.sign({ id: user.id }, authConfig.secret, {
+            expiresIn: 86400
+        });
+
+        return res.status(200).json({ user, token });
     }
 }
