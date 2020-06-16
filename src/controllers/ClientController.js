@@ -1,7 +1,14 @@
 const connection = require('../database/connection');
-const { create } = require('./ProjectController');
 
 module.exports = {
+    async index(req, res) {
+        try {
+            const clients = await connection('clients').select('*');
+            return res.status(200).json(clients);
+        } catch (error) {
+            return res.status(500).json(error);
+        }
+    },
     async create(req, res) {
         const { name, cnpj, email, phone } = req.body;
 
