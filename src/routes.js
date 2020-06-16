@@ -29,5 +29,6 @@ routes.delete('/clients/:id', ClientController.delete);
 
 routes.post('/sales', SaleController.create);
 routes.get('/sales', SaleController.index);
+routes.put('/sales/:id', SaleController.update);
 
 module.exports = routes;
