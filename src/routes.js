@@ -23,5 +23,6 @@ routes.delete('/projects/:id', ProjectController.delete);
 
 routes.post('/clients', ClientController.create);
 routes.get('/clients', ClientController.index);
+routes.put('/clients/:id', ClientController.update);
 
 module.exports = routes;

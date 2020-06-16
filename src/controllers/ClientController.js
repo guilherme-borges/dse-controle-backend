@@ -1,4 +1,5 @@
 const connection = require('../database/connection');
+const { update } = require('./ProjectController');
 
 module.exports = {
     async index(req, res) {
@@ -35,6 +36,37 @@ module.exports = {
                 .first();
 
             return res.status(201).json(clientInserted);
+        } catch (error) {
+            return res.status(500).json(error);
+        }
+    },
+    async update(req, res) {
+        const { name, cnpj, email, phone } = req.body;
+        const id = req.params;
+
+        try {
+            const client = await connection('clients')
+                .select('*')
+                .where('cnpj', cnpj)
+                .first();
+
+            if (!client) {
+                return res.status(400).json({ error: 'Cliente não encontrado!' });
+            }
+
+            await connection('clients').update({
+                name,
+                cnpj,
+                email,
+                phone
+            }).where('id', id);
+
+            const clientUpdated = await connection('clients')
+                .select('*')
+                .where('id', id)
+                .first();
+
+            return res.status(200).json(clientUpdated);
         } catch (error) {
             return res.status(500).json(error);
         }
