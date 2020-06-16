@@ -70,5 +70,27 @@ module.exports = {
         } catch (error) {
             return res.status(500).json(error);
         }
+    },
+    async delete(req, res) {
+        const { id } = req.params;
+
+        try {
+
+            const clientId = await connection('clients')
+                .select('id')
+                .from('clients')
+                .where('id', id)
+                .first();
+
+            if (!clientId) {
+                return res.status(400).json({ error: 'Cliente não encontrado!' });
+            }
+
+            await connection('clients').where('id', id).del();
+
+            return res.status(200).json({ message: 'Cliente deletado.' });
+        } catch (error) {
+            return res.status(500).json(error);
+        }
     }
 };
