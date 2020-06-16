@@ -3,6 +3,7 @@ const authMiddleware = require('./middlewares/auth');
 const UserController = require('./controllers/UserController');
 const SessionController = require('./controllers/SessionController');
 const ProjectController = require('./controllers/ProjectController');
+const ClientController = require('./controllers/ClientController');
 
 const routes = express.Router();
 
@@ -19,5 +20,7 @@ routes.post('/projects', ProjectController.create);
 routes.get('/projects', ProjectController.index);
 routes.put('/projects/:id', ProjectController.update);
 routes.delete('/projects/:id', ProjectController.delete);
+
+routes.post('/clients', ClientController.create);
 
 module.exports = routes;
