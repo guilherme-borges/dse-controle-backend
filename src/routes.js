@@ -4,6 +4,7 @@ const UserController = require('./controllers/UserController');
 const SessionController = require('./controllers/SessionController');
 const ProjectController = require('./controllers/ProjectController');
 const ClientController = require('./controllers/ClientController');
+const SaleController = require('./controllers/SaleController');
 
 const routes = express.Router();
 
@@ -25,5 +26,7 @@ routes.post('/clients', ClientController.create);
 routes.get('/clients', ClientController.index);
 routes.put('/clients/:id', ClientController.update);
 routes.delete('/clients/:id', ClientController.delete);
+
+routes.post('/sales', SaleController.create);
 
 module.exports = routes;
