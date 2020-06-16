@@ -42,7 +42,7 @@ module.exports = {
     },
     async update(req, res) {
         const { name, cnpj, email, phone } = req.body;
-        const id = req.params;
+        const { id } = req.params;
 
         try {
             const client = await connection('clients')
