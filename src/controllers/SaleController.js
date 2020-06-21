@@ -3,8 +3,7 @@ const connection = require('../database/connection');
 module.exports = {
     async index(req, res) {
         try {
-            const sales = await connection()
-                .from('sales')
+            const sales = await connection('sales')
                 .innerJoin('clients', 'clients.id', '=', 'sales.client_id')
                 .innerJoin('projects', 'projects.id', '=', 'sales.project_id')
                 .select('sales.*', 'clients.name as client', 'projects.name as project');
