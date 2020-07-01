@@ -1,5 +1,4 @@
 const connection = require('../database/connection');
-const { update } = require('./ProjectController');
 
 module.exports = {
     async index(req, res) {
