@@ -26,8 +26,10 @@ module.exports = {
             });
 
             const saleInserted = await connection('sales')
-                .select('*')
-                .where('id', id)
+                .innerJoin('clients', 'clients.id', '=', 'sales.client_id')
+                .innerJoin('projects', 'projects.id', '=', 'sales.project_id')
+                .select('sales.*', 'clients.name as client', 'projects.name as project')
+                .where('sales.id', id)
                 .first();
 
             return res.status(201).json(saleInserted);
