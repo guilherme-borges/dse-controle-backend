@@ -1,12 +1,13 @@
+require('dotenv/config');
 module.exports = {
 
     development: {
         client: 'mysql',
         connection: {
-            host: '127.0.0.1',
-            database: 'dse_controle',
-            user: 'root',
-            password: ''
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,
@@ -21,10 +22,10 @@ module.exports = {
     staging: {
         client: 'mysql',
         connection: {
-            host: '127.0.0.1',
-            database: 'apontamento_horas',
-            user: 'root',
-            password: ''
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,
@@ -39,9 +40,10 @@ module.exports = {
     production: {
         client: 'mysql',
         connection: {
-            database: 'apontamento_horas',
-            user: 'root',
-            password: ''
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,

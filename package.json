@@ -1,29 +1,31 @@
 {
-  "name": "dse-controle-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guilherme-borges/dse-controle-backend.git"
-  },
-  "author": "Guilherme Borges",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/guilherme-borges/dse-controle-backend/issues"
-  },
-  "homepage": "https://github.com/guilherme-borges/dse-controle-backend#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "knex": "^0.21.1",
-    "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+    "name": "dse-controle-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "start": "node src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/guilherme-borges/dse-controle-backend.git"
+    },
+    "author": "Guilherme Borges",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/guilherme-borges/dse-controle-backend/issues"
+    },
+    "homepage": "https://github.com/guilherme-borges/dse-controle-backend#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "knex": "^0.21.1",
+        "mysql": "^2.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }
